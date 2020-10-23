@@ -19,10 +19,3 @@ isort<5.0.0
 
 # zipp version 2.0.0 dropped support for python 3.5
 zipp<2.0.0
-
-# sqlparse version 0.4.0 dropped support for python 2.7
-sqlparse<0.4.0
-
-# In order to run test with python 2.7
-pylint==1.9.3
-pycodestyle==2.5.0
