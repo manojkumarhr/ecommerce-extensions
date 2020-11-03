@@ -19,3 +19,6 @@ isort<5.0.0
 
 # zipp version 2.0.0 dropped support for python 3.5
 zipp<2.0.0
+
+#keep the same juniper release versions.
+jsonfield2==3.0.3

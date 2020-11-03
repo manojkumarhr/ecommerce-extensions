@@ -19,7 +19,17 @@ SECRET_KEY = 'secret-key'
 
 # Application definition
 
-INSTALLED_APPS = []
+INSTALLED_APPS = [
+    'django.contrib.sites',
+    'ecommerce_extensions.tenant.apps.TenantConfig',
+]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
