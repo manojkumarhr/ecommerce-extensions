@@ -4,14 +4,10 @@ the subdomain from prod domains to stage versions.
 """
 import json
 import logging
+from urllib.parse import urlparse
 
 from django.contrib.sites.models import Site
 from django.core.management.base import BaseCommand
-
-try:
-    from urllib.parse import urlparse  # Python 3 Compatible
-except ImportError:
-    from urlparse import urlparse  # Python 2 Compatible
 
 LOGGER = logging.getLogger(__name__)
 CHANGE_DOMAIN_DEFAULT_SITE_NAME = 'stage.edunext.co'

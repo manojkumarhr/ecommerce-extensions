@@ -21,6 +21,7 @@ SECRET_KEY = 'secret-key'
 
 INSTALLED_APPS = [
     'django.contrib.sites',
+    'ecommerce_extensions.apps.EcommerceExtensionsConfig',
     'ecommerce_extensions.tenant.apps.TenantConfig',
 ]
 
