@@ -1,6 +1,7 @@
 -c constraints.txt
 -r base.txt
 
+codecov
 coverage
 ddt
 jsonfield2
