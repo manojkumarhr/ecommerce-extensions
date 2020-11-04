@@ -78,7 +78,6 @@ jobs:
             . venv/bin/activate
             export TOXENV=${TOX_ENV//./}
             make run-tests
-            bash <(curl -s https://codecov.io/bash)
 
       - save_cache:
           paths:
