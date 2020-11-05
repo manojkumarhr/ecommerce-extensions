@@ -74,6 +74,7 @@ class ChangeDomainTestCase(TestCase):
         """Suffix starts with a period.
 
         Expected behavior:
+            - siteconfiguration save method is called.
             - siteconfiguration lms_url_root is the expected value.
             - siteconfiguration oauth_settings is the expected value.
             - Site domain has not been changed.
@@ -90,6 +91,7 @@ class ChangeDomainTestCase(TestCase):
             )
 
             siteconfiguration = site_objects_mock.all()[0].siteconfiguration
+            siteconfiguration.save.assert_called_once()
             self.assertEqual(expected_domain, siteconfiguration.lms_url_root)
             self.assertEqual(expected_domain, siteconfiguration.oauth_settings["SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT"])
 
