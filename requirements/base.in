@@ -2,4 +2,7 @@
 -c constraints.txt
 
 Django
+django-oscar
+djangorestframework
 jsonfield2
+sorl-thumbnail

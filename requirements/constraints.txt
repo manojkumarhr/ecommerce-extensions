@@ -21,4 +21,6 @@ isort<5.0.0
 zipp<2.0.0
 
 #keep the same juniper release versions.
+django-oscar==2.0.4
+djangorestframework==3.11.0
 jsonfield2==3.0.3
