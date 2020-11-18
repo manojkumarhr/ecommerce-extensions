@@ -8,6 +8,7 @@ from ecommerce_extensions.payment import urls
 
 urlpatterns = [
     path("payu/", include((urls.PAYU_URLS, "ecommerce_extensions"), namespace="payu")),
+    path("wechat/", include((urls.FOMOPAY_URLS, "ecommerce_extensions"), namespace='fomopay')),
 ]
 
 if getattr(settings, 'TESTING', False):

@@ -6,7 +6,7 @@
 #
 astroid==2.4.2            # via pylint
 babel==2.8.0              # via -r requirements/base.txt, django-oscar, django-phonenumber-field
-certifi==2020.6.20        # via requests
+certifi==2020.11.8        # via requests
 chardet==3.0.4            # via requests
 codecov==2.1.10           # via -r requirements/test.in
 coverage==5.3             # via -r requirements/test.in, codecov
@@ -21,7 +21,7 @@ django-widget-tweaks==1.4.8  # via -r requirements/base.txt, django-oscar
 django==2.2.17            # via -c requirements/constraints.txt, -r requirements/base.txt, django-extra-views, django-haystack, django-oscar, django-phonenumber-field, django-tables2, django-treebeard, djangorestframework, jsonfield2
 djangorestframework==3.11.0  # via -c requirements/constraints.txt, -r requirements/base.txt
 factory-boy==2.12.0       # via -r requirements/base.txt, django-oscar
-faker==4.14.1             # via -r requirements/base.txt, factory-boy
+faker==4.14.2             # via -r requirements/base.txt, factory-boy
 idna==2.10                # via requests
 isort==4.3.21             # via -c requirements/constraints.txt, pylint
 jsonfield2==3.0.3         # via -c requirements/constraints.txt, -r requirements/base.txt, -r requirements/test.in
@@ -35,8 +35,9 @@ pycodestyle==2.6.0        # via -r requirements/test.in
 pylint==2.6.0             # via -r requirements/test.in
 python-dateutil==2.8.1    # via -r requirements/base.txt, faker
 pytz==2020.4              # via -r requirements/base.txt, babel, django
+qrcode==6.1               # via -r requirements/base.txt
 requests==2.24.0          # via codecov
-six==1.15.0               # via -r requirements/base.txt, astroid, django-extra-views, mock, purl, python-dateutil
+six==1.15.0               # via -r requirements/base.txt, astroid, django-extra-views, mock, purl, python-dateutil, qrcode
 sorl-thumbnail==12.6.3    # via -r requirements/base.txt
 sqlparse==0.4.1           # via -r requirements/base.txt, django
 testfixtures==6.15.0      # via -r requirements/test.in
