@@ -15,7 +15,9 @@ cffi==1.14.4
 chardet==4.0.0
     # via requests
 cryptography==3.2.1
-    # via social-auth-core
+    # via
+    #   -r requirements/base.in
+    #   social-auth-core
 defusedxml==0.6.0
     # via
     #   python3-openid
@@ -23,6 +25,8 @@ defusedxml==0.6.0
 django-appconf==1.0.4
     # via django-compressor
 django-compressor==2.4
+    # via -r requirements/base.in
+django-crum==0.7.9
     # via -r requirements/base.in
 django-extra-views==0.11.0
     # via django-oscar
@@ -38,6 +42,8 @@ django-tables2==1.21.2
     # via django-oscar
 django-treebeard==4.3.1
     # via django-oscar
+django-waffle==2.0.0
+    # via -r requirements/base.in
 django-widget-tweaks==1.4.8
     # via django-oscar
 django==2.2.17
@@ -45,6 +51,7 @@ django==2.2.17
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
     #   django-appconf
+    #   django-crum
     #   django-extra-views
     #   django-haystack
     #   django-oscar
