@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'sandbox_listener/style.css' %}">
+  <head>
+    <meta charset="utf-8">
+    <title>EDNXPP Sandbox</title>
+  </head>
+  <body>
+    <div class="row">
+        <div class="column-sandbox">
+            <h2>Sandbox</h2>
+            <form action="{% url 'transaction_approved' %}" method="POST">
+                <input type="hidden" name="data" value="{{ data }}">
+                <input type="submit" value="APPROVED" class="approved">
+            </form>
+            <form action="{% url 'transaction_pending' %}" method="POST">
+                <input type="hidden" name="data" value="{{ data }}">
+                <input type="submit" value="PENDING" class="pending">
+            </form>
+            <form action="{% url 'transaction_declined' %}" method="POST">
+                <input type="hidden" name="data" value="{{ data }}">
+                <input type="submit" value="DECLINED" class="declined">
+            </form>
+        </div>
+        <div class="column">
+            <h2>Información de Compra</h2>
+            {% if data %}
+                <!-- <form action="{% url 'transaction_approved' %}">
+                    <p name='data' style="display: none;">{{ data }}</p>
+                </form> -->
+                {% for key, value in data.items %}
+                    {% if key == 'description' %}
+                        <b>Producto</b> : {{ value }} <br>
+                    {% elif key == 'username' %}
+                        <b>Usuario</b> : {{ value }} <br>
+                    {% elif key == 'amount' %}
+                        <b>Precio</b> : {{ value }} <br>
+                    {% elif key == 'currency' %}
+                        <b>Moneda</b> : {{ value }} <br>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    
+  </body>
+</html>

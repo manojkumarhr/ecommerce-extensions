@@ -1,0 +1,49 @@
+.column {
+    float: left;
+    width: 50%;
+  }
+
+.column-sandbox {
+    float: left;
+    width: 50%;
+    text-align:center
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  padding: 100px 400px 100px 400px;
+}
+
+h2 {
+  text-align: center;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  align-items: center;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.approved {
+  background-color: #1e7c1f;
+}
+
+.pending {
+  background-color: #0791e0;
+}
+
+.declined {
+  background-color: #b40000;
+}

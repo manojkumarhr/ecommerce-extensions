@@ -1,0 +1,9 @@
+{
+    "stage": {
+        "django_settings": "pp_sandbox.settings",
+        "profile_name": null,
+        "project_name": "pp-sandbox",
+        "runtime": "python3.8",
+        "s3_bucket": "zappa-edupay-sandbox"
+    }
+}
