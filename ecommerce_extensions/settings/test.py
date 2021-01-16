@@ -118,3 +118,6 @@ DATABASES = {
         'NAME': 'db.sqlite3',
     }
 }
+
+STATIC_URL = "http://example.com/"
+STATIC_ROOT = "/var/www/example.com/static/"

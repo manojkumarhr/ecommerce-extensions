@@ -73,8 +73,9 @@ class UpdateTenantSettingsTests(TestCase):
         "custom_key": "fake_value",
         "custom_key2": "fake_value2",
     })
+    @patch("ecommerce_extensions.tenant.receivers._perform_reset")
     @patch.object(TenantAwareSettings, "get_tenant_options")
-    def test_override_dict_value(self, get_tenant_options_mock):
+    def test_override_dict_value(self, get_tenant_options_mock, _):
         """
         This method tests to override a dict value.
 
