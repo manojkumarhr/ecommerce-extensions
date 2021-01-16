@@ -12,6 +12,12 @@ Change Log
 Unreleased
 ----------
 
+Added
+_____
+
+* Reset setting capability.
+
+
 [0.3.1] - 2020-12-28
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

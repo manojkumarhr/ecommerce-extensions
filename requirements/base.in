@@ -2,6 +2,7 @@
 -c constraints.txt
 
 Django
+django-compressor
 django-oscar
 djangorestframework
 jsonfield2
