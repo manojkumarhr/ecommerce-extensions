@@ -1,9 +1,12 @@
 # Main requirements of your application.
 -c constraints.txt
 
+cryptography
 Django
 django-compressor
+django-crum
 django-oscar
+django-waffle
 djangorestframework
 jsonfield2
 qrcode

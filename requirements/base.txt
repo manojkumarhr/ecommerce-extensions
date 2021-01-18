@@ -4,30 +4,97 @@
 #
 #    make upgrade
 #
-babel==2.9.0              # via django-oscar, django-phonenumber-field
-django-appconf==1.0.4     # via django-compressor
-django-compressor==2.4    # via -r requirements/base.in
-django-extra-views==0.11.0  # via django-oscar
-django-haystack==2.8.1    # via django-oscar
-django-oscar==2.0.4       # via -c requirements/constraints.txt, -r requirements/base.in
-django-phonenumber-field==2.0.1  # via django-oscar
-django-tables2==1.21.2    # via django-oscar
-django-treebeard==4.3.1   # via django-oscar
-django-widget-tweaks==1.4.8  # via django-oscar
-django==2.2.17            # via -c requirements/constraints.txt, -r requirements/base.in, django-appconf, django-extra-views, django-haystack, django-oscar, django-phonenumber-field, django-tables2, django-treebeard, djangorestframework, jsonfield2
-djangorestframework==3.11.0  # via -c requirements/constraints.txt, -r requirements/base.in
-factory-boy==2.12.0       # via django-oscar
-faker==5.0.0              # via factory-boy
-jsonfield2==3.0.3         # via -c requirements/constraints.txt, -r requirements/base.in
-phonenumbers==8.12.16     # via django-oscar, django-phonenumber-field
-pillow==7.2.0             # via django-oscar
-purl==1.5                 # via django-oscar
-python-dateutil==2.8.1    # via faker
-pytz==2020.5              # via babel, django
-qrcode==6.1               # via -r requirements/base.in
-rcssmin==1.0.6            # via django-compressor
-rjsmin==1.1.0             # via django-compressor
-six==1.15.0               # via django-compressor, django-extra-views, purl, python-dateutil, qrcode
-sorl-thumbnail==12.7.0    # via -r requirements/base.in
-sqlparse==0.4.1           # via django
-text-unidecode==1.3       # via faker
+babel==2.9.0
+    # via
+    #   django-oscar
+    #   django-phonenumber-field
+cffi==1.14.4
+    # via cryptography
+cryptography==3.2.1
+    # via -r requirements/base.in
+django-appconf==1.0.4
+    # via django-compressor
+django-compressor==2.4
+    # via -r requirements/base.in
+django-crum==0.7.9
+    # via -r requirements/base.in
+django-extra-views==0.11.0
+    # via django-oscar
+django-haystack==2.8.1
+    # via django-oscar
+django-oscar==2.0.4
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/base.in
+django-phonenumber-field==2.0.1
+    # via django-oscar
+django-tables2==1.21.2
+    # via django-oscar
+django-treebeard==4.3.1
+    # via django-oscar
+django-waffle==2.0.0
+    # via -r requirements/base.in
+django-widget-tweaks==1.4.8
+    # via django-oscar
+django==2.2.17
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/base.in
+    #   django-appconf
+    #   django-crum
+    #   django-extra-views
+    #   django-haystack
+    #   django-oscar
+    #   django-phonenumber-field
+    #   django-tables2
+    #   django-treebeard
+    #   djangorestframework
+    #   jsonfield2
+djangorestframework==3.11.0
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/base.in
+factory-boy==2.12.0
+    # via django-oscar
+faker==5.0.0
+    # via factory-boy
+jsonfield2==3.0.3
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/base.in
+phonenumbers==8.12.16
+    # via
+    #   django-oscar
+    #   django-phonenumber-field
+pillow==7.2.0
+    # via django-oscar
+purl==1.5
+    # via django-oscar
+pycparser==2.20
+    # via cffi
+python-dateutil==2.8.1
+    # via faker
+pytz==2020.5
+    # via
+    #   babel
+    #   django
+qrcode==6.1
+    # via -r requirements/base.in
+rcssmin==1.0.6
+    # via django-compressor
+rjsmin==1.1.0
+    # via django-compressor
+six==1.15.0
+    # via
+    #   cryptography
+    #   django-compressor
+    #   django-extra-views
+    #   purl
+    #   python-dateutil
+    #   qrcode
+sorl-thumbnail==12.7.0
+    # via -r requirements/base.in
+sqlparse==0.4.1
+    # via django
+text-unidecode==1.3
+    # via faker
