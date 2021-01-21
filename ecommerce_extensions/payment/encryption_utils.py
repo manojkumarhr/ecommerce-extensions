@@ -1,4 +1,4 @@
-""" Moduel to encript the order number in the url for status page """
+""" Module to encrypt the order number in the URL for status page """
 import base64
 
 from cryptography.fernet import Fernet

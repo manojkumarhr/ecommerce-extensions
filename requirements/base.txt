@@ -42,8 +42,6 @@ django-tables2==1.21.2
     # via django-oscar
 django-treebeard==4.3.1
     # via django-oscar
-django-waffle==2.0.0
-    # via -r requirements/base.in
 django-widget-tweaks==1.4.8
     # via django-oscar
 django==2.2.17

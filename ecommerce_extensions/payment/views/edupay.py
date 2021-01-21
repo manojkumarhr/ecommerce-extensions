@@ -236,7 +236,7 @@ class EdnxPaymentStatusView(APIView):
         else:
             try:
                 order = Order.objects.get(number=order_id)  # pylint: disable=unused-variable
-            except:  # pylint: disable=bare-except
+            except Order.DoesNotExist:
                 logger.info(
                     'Edupay Payment: No payment found for order [%s] ',
                     order_id,
@@ -273,4 +273,8 @@ class EdnxPaymentStatusView(APIView):
                 EdnxPaymentProcessor.NAME,
             )
 
+        logger.info(
+            '[%s] Payment: Unknown processing error',
+            EdnxPaymentProcessor.NAME,
+        )
         return 'error'

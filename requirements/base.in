@@ -6,7 +6,6 @@ Django
 django-compressor
 django-crum
 django-oscar
-django-waffle
 djangorestframework
 edx-auth-backends
 jsonfield2

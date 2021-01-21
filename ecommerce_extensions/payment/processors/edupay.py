@@ -12,7 +12,6 @@ import logging
 from decimal import Decimal
 from hashlib import sha256
 
-import waffle
 from crum import get_current_request
 from django.conf import settings
 from django.urls import reverse
@@ -21,8 +20,8 @@ from django.utils.functional import cached_property
 from oscar.apps.payment.exceptions import GatewayError, TransactionDeclined
 from oscar.core.loading import get_model
 
-from ecommerce_extensions.payment.constants import InvalidEdnxDecision, TransactionPending
 from ecommerce_extensions.payment.encryption_utils import encode_string
+from ecommerce_extensions.payment.exceptions import InvalidEdnxDecision, TransactionPending
 
 try:
     from ecommerce.extensions.payment.exceptions import InvalidSignatureError
@@ -49,6 +48,7 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
 
     EDNX_PAYMENT_PROCESSOR_CONFIG: {
         'PAYMENT_PROCESSOR_NAME': 'a-cool-name',
+        'IS_ENABLED': true,
         'SIGNATURE_PAYMENT_KEYS':[
             'referenceCode',
             'amount',
@@ -91,6 +91,8 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
 
         **PAYMENT_PROCESSOR_NAME: This name will identify the payment processor, this name will be shown in the
             payment button.
+
+        **IS_ENABLED: This toggle replaces the Waffle used for other processors. Defaults to False.
 
         **SIGNATURE_PAYMENT_KEYS: List of key parameters which will be used in the payment signature process.
 
@@ -367,9 +369,7 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
         This method should be implemented in the future in order
         to accept payment refunds
         """
-        logger.exception(
-            'edupay processor can not issue credits or refunds',
-        )
+        logger.exception('edupay processor can not issue credits or refunds')
 
         raise NotImplementedError
 
@@ -378,7 +378,4 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
         """
         Returns True if this payment processor is enabled, and False otherwise.
         """
-        return waffle.switch_is_active('{}{}'.format(
-            settings.PAYMENT_PROCESSOR_SWITCH_PREFIX,
-            DEFAULT_NAME,
-        ))
+        return getattr(settings, 'EDNX_PAYMENT_PROCESSOR_CONFIG', {}).get('IS_ENABLED', False)
