@@ -1,12 +1,66 @@
 <!DOCTYPE html>
 <html>
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'sandbox_listener/style.css' %}">
-  <head>
+
+<style type="text/css">
+    .column {
+        float: left;
+        width: 50%;
+    }
+
+    .column-sandbox {
+        float: left;
+        width: 50%;
+        text-align:center
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+
+  .row {
+      padding: 100px 400px 100px 400px;
+  }
+
+  h2 {
+      text-align: center;
+  }
+
+  input[type=button], input[type=submit], input[type=reset] {
+      align-items: center;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      width: 200px;
+      height: 60px;
+      cursor: pointer;
+  }
+
+  .approved {
+      background-color: #1e7c1f;
+  }
+
+  .pending {
+      background-color: #0791e0;
+  }
+
+  .declined {
+      background-color: #b40000;
+  }
+
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'sandbox_listener/style.css' %}">
+<head>
     <meta charset="utf-8">
     <title>EDNXPP Sandbox</title>
-  </head>
-  <body>
+</head>
+<body>
     <div class="row">
         <div class="column-sandbox">
             <h2>Sandbox</h2>
@@ -30,19 +84,19 @@
                     <p name='data' style="display: none;">{{ data }}</p>
                 </form> -->
                 {% for key, value in data.items %}
-                    {% if key == 'description' %}
-                        <b>Producto</b> : {{ value }} <br>
-                    {% elif key == 'username' %}
-                        <b>Usuario</b> : {{ value }} <br>
-                    {% elif key == 'amount' %}
-                        <b>Precio</b> : {{ value }} <br>
-                    {% elif key == 'currency' %}
-                        <b>Moneda</b> : {{ value }} <br>
-                    {% endif %}
+                {% if key == 'description' %}
+                <b>Producto</b> : {{ value }} <br>
+                {% elif key == 'username' %}
+                <b>Usuario</b> : {{ value }} <br>
+                {% elif key == 'amount' %}
+                <b>Precio</b> : {{ value }} <br>
+                {% elif key == 'currency' %}
+                <b>Moneda</b> : {{ value }} <br>
+                {% endif %}
                 {% endfor %}
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
-    </div>
-    
-  </body>
+
+    </body>
 </html>

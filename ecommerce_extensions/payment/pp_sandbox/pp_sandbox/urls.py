@@ -19,7 +19,6 @@ from django.urls import include, path
 from sandbox_listener import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('sandbox/', include('sandbox_listener.urls')),
     path('', views.landing, name='landing'),
 ]
