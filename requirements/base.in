@@ -1,8 +1,10 @@
 # Main requirements of your application.
 -c constraints.txt
 
+cryptography
 Django
 django-compressor
+django-crum
 django-oscar
 djangorestframework
 edx-auth-backends
