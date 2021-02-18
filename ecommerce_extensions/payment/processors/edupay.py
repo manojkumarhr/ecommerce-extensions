@@ -202,8 +202,9 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
             if hasattr(owner, value):
                 parameters[key] = str(getattr(owner, value))
             elif value in getattr(owner, 'extended_profile_fields', {}):
-                parameters[key] = str(owner.extended_profile_fields['extended_profile_fields'])
+                parameters[key] = str(getattr(owner.extended_profile_fields, value))
             else:
+                parameters[key] = ''
                 logger.error(
                     'The configuration owner value [%s] for [%s] is not valid, verify the setting object.',
                     value,
