@@ -202,7 +202,7 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
             if hasattr(owner, value):
                 parameters[key] = str(getattr(owner, value))
             elif value in getattr(owner, 'extended_profile_fields', {}):
-                parameters[key] = str(getattr(owner.extended_profile_fields, value))
+                parameters[key] = str(owner.extended_profile_fields.get(value))
             else:
                 parameters[key] = ''
                 logger.error(
