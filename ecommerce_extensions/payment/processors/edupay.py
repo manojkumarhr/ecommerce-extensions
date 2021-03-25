@@ -346,7 +346,7 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
             # taken from http://developers.payulatam.com/en/web_checkout/integration.html
             # hence the parameter value is mandatory
             value = parameters['value']
-            parameters['value'] = value[:-1] if value[-1] == '0' else value
+            parameters['value'] = value[:-1] if (value[-1] == '0' and value[-3] == '.') else value
             signature_keys = self.ednx_configuration.get('SIGNATURE_CONFIRMATION_KEYS', [])
 
         try:
