@@ -3,7 +3,7 @@ import logging
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -113,7 +113,7 @@ class EdnxPaymentResponseView(EdxOrderPlacementMixin, View):
 
             if not basket:
                 logger.error('Received payment for non-existent basket [%s].', basket_id)
-                return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+                return HttpResponseBadRequest("Error recording payment")
         finally:
             # Store the response in the database.
             response_stored = self.payment_processor.record_processor_response(
@@ -137,7 +137,7 @@ class EdnxPaymentResponseView(EdxOrderPlacementMixin, View):
                         EdnxPaymentProcessor.NAME,
                         response_stored.id,
                     )
-                    return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+                    return HttpResponseBadRequest("Wrong signature")
                 except TransactionPending:
                     logger.info(
                         '[%s] payment is pending for basket [%d]. '
@@ -168,10 +168,10 @@ class EdnxPaymentResponseView(EdxOrderPlacementMixin, View):
                         basket.id,
                         response_stored.id,
                     )
-                    return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+                    return HttpResponseBadRequest("Payment error")
         except:  # pylint: disable=bare-except
             logger.exception('Attempts to handle payment for basket [%d] failed.', basket.id)
-            return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+            return HttpResponseBadRequest("Unspecified error processing response")
         response = self.record_order(request, edupay_response, basket, order_number)
         return response
 
@@ -208,7 +208,7 @@ class EdnxPaymentResponseView(EdxOrderPlacementMixin, View):
             if self.payment_processor:
                 payment_processor = self.payment_processor.NAME.title()  # pylint: disable=no-member
             logger.exception(self.order_placement_failure_msg, payment_processor, basket.id)
-            return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+            return HttpResponseBadRequest("Error recording order")
 
     def post(self, request):
         """Process a payment processor merchant notification and place an order for paid products as appropriate."""
