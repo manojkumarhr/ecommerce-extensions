@@ -6,6 +6,7 @@ coverage
 ddt
 jsonfield2
 mock
+path.py
 pycodestyle
 pylint
 testfixtures
