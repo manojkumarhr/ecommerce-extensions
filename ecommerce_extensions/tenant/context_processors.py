@@ -4,6 +4,7 @@ This file contains django context_processors needed by edunext.
 """
 import logging
 
+from ecommerce_extensions.tenant.extra_html import process_html
 from ecommerce_extensions.tenant.extra_scripts import process_scripts
 from ecommerce_extensions.tenant.models import TenantOptions
 
@@ -32,5 +33,6 @@ def theme_options(request):
         "theme_dir_name": site_theme_name,
         "site_configuration": request.site.siteconfiguration,
         "options": options,
-        "scripts": process_scripts(request.path_info, theme_options_values)
+        "scripts": process_scripts(request.path_info, theme_options_values),
+        "html": process_html(request.path_info, theme_options_values)
     }
