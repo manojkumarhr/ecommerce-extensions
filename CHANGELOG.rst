@@ -15,6 +15,16 @@ Unreleased
 Added
 _____
 
+* Blocks of scripts in context_processors from THEME OPTIONS in tenant options.
+* Blocks of HTML in context_processors from THEME OPTIONS in tenant options.
+
+
+[0.4.0] - 2021-05-11
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added
+_____
+
 * Reset setting capability.
 
 
