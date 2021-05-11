@@ -19,7 +19,43 @@ _____
 * Blocks of HTML in context_processors from THEME OPTIONS in tenant options.
 
 
-[0.4.0] - 2021-05-11
+[1.2.0] - 2021-05-11
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fixed
+_____
+
+* returning messages for debug with the 400 responses
+
+
+[1.1.0] - 2021-04-06
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fixed
+_____
+
+* using get since the object is a dict
+
+
+[1.0.2] - 2021-02-19
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fixed
+_____
+
+* correcting the KeyError
+
+
+[1.0.1] - 2021-02-18
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added
+_____
+
+* Add new payment processor (ednx-pp).
+
+
+[1.0.0] - 2021-02-09
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Added
