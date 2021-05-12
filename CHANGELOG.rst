@@ -15,6 +15,15 @@ Unreleased
 Added
 _____
 
+* Sentry configurations on apps.py
+
+
+[1.2.1] - 2021-05-12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added
+_____
+
 * Blocks of scripts in context_processors from THEME OPTIONS in tenant options.
 * Blocks of HTML in context_processors from THEME OPTIONS in tenant options.
 
