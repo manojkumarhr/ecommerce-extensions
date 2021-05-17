@@ -73,6 +73,10 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
         'extra_parameters': {
             'key_field': value',
             ...
+        },
+        'courses': {
+            'description':'id',
+            ...
         }
     }
 
@@ -104,7 +108,11 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
 
         ** basket: basket information the key will be the key in the transaction parameters and the value will be
         the attribute returned, example this configuration 'basket': {'referenceCode': 'order_number'} will return
-        {'buyerEmail': basket.order_number} in the transaction parameters.
+        {'referenceCode': basket.order_number} in the transaction parameters.
+
+        ** courses: Course information, the key will be the key in the transaction parameters and the value will be
+        the attribute returned, example this configuration 'courses': {'description':'id'} will return
+        {'description':'course.id'} in the transaction parameters.
 
         ** extra_parameters: extra information the key will be the key in the transaction parameters and the value
         will be the same, example this configuration 'extra_parameters': {'site_code': '787895'} will return
@@ -177,12 +185,8 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
         }
         parameters.update(self._get_basket_parameters(basket))
         parameters.update(self._get_owner_parameters(basket.owner))
+        parameters.update(self._get_courses_parameters(self.get_course_list(basket)))
         parameters.update(self.ednx_configuration.get('extra_parameters', {}))
-        single_seat = self.get_single_seat(basket)
-
-        if single_seat:
-            parameters['description'] = single_seat.course_id
-
         parameters['signature'] = self._generate_signature(parameters, self.PAYMENT_FORM_SIGNATURE)
 
         return parameters
@@ -236,18 +240,42 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
 
         return parameters
 
-    @staticmethod
-    def get_single_seat(basket):
+    def _get_courses_parameters(self, courses):
+        """Generate a dictionary with the course attributes which are set in EDNX_PAYMENT_PROCESSOR_CONFIG['courses'].
+
+        Arguments:
+            courses (List): List of courses.
+
+        Returns:
+            parameters(dict): Founded attributes for the given user.
         """
-        Return the first product encountered in the basket with the product
+        parameters = {}
+
+        for key, value in self.ednx_configuration.get('courses', {}).items():
+            try:
+                parameters[key] = ';'.join([str(getattr(course, value)) for course in courses])
+            except AttributeError:
+                logger.error(
+                    'The configuration basket value [%s] for [%s] is not valid, verify the setting object.',
+                    value,
+                    self.NAME,
+                )
+
+        return parameters
+
+    @staticmethod
+    def get_course_list(basket):
+        """
+        Return the products encountered in the basket with the product
         class of 'seat'.  Return None if no such products were found.
 
         Arguments:
             basket (Basket): Basket being purchased via the payment processor.
 
         Returns:
-            product: First product with the class seat.
+            course_list: All the courses in the basket.
         """
+        course_list = []
         try:
             seat_class = ProductClass.objects.get(slug='seat')
         except ProductClass.DoesNotExist:
@@ -257,9 +285,9 @@ class EdnxPaymentProcessor(BasePaymentProcessor):
         for line in basket.lines.all():
             product = line.product
             if product.get_product_class() == seat_class:
-                return product
+                course_list.append(product.course)
 
-        return None
+        return course_list if course_list else None
 
     def handle_processor_response(self, response, basket=None):  # pylint: disable=unused-argument
         """
