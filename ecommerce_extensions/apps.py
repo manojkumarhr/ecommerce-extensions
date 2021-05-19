@@ -25,10 +25,7 @@ class EcommerceExtensionsConfig(AppConfig):
         """
         Method to perform actions after apps registry is ended
         """
-        sentry_integration_dsn = getattr(settings, 'ENV_TOKENS', {}).get(
-            'ECOMMERCE_EXTENSIONS_SENTRY_INTEGRATION_DSN',
-            None
-        )
+        sentry_integration_dsn = getattr(settings, 'ECOMMERCE_EXTENSIONS_SENTRY_INTEGRATION_DSN', None)
         if sentry_sdk and sentry_integration_dsn:
             sentry_sdk.init(
                 dsn=sentry_integration_dsn,
