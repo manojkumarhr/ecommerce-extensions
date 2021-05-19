@@ -12,6 +12,11 @@ Change Log
 Unreleased
 ----------
 
+Fixed
+_____
+
+* Sentry dsn integration variable
+
 [1.3.0] - 2021-05-17
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
