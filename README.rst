@@ -93,3 +93,12 @@ In order to activate these processor some configuratios are required.
 
 
 .. _ecommerce: https://github.com/edx/ecommerce/
+
+How to Contribute
+#################
+
+Contributions are welcome! See our `CONTRIBUTING`_ file for more
+information – it also contains guidelines for how to maintain high code
+quality, which will make your contribution more likely to be accepted.
+
+.. _CONTRIBUTING: https://github.com/eduNEXT/ecommerce-extensions/blob/main/CONTRIBUTING.rst
