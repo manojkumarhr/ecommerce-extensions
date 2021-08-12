@@ -11,6 +11,10 @@ Change Log
 .. There should always be an "Unreleased" section for changes pending release.
 Unreleased
 ----------
+Added
+_____
+
+* Console access functionality
 
 [1.3.1] - 2021-05-19
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
