@@ -10,7 +10,11 @@ Change Log
    This project adheres to Semantic Versioning (http://semver.org/).
 .. There should always be an "Unreleased" section for changes pending release.
 Unreleased
-----------
+~~~~~~~~~~
+
+Changed
+-------
+* Update `sentry-sdk`.
 
 [1.4.0] - 2021-08-12
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
