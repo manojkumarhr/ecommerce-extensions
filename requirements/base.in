@@ -9,5 +9,6 @@ django-oscar
 djangorestframework
 edx-auth-backends
 jsonfield2
+pycountry==17.1.8
 qrcode
 sorl-thumbnail
