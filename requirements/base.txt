@@ -32,7 +32,7 @@ django-extra-views==0.11.0
     # via django-oscar
 django-haystack==2.8.1
     # via django-oscar
-django-oscar==2.0.4
+django-oscar==2.0.2
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
