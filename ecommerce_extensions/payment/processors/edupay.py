@@ -15,7 +15,7 @@ from hashlib import sha256
 from crum import get_current_request
 from django.conf import settings
 from django.urls import reverse
-from django.utils.decorators import classproperty
+from django.utils.functional import classproperty
 from django.utils.functional import cached_property
 from oscar.apps.payment.exceptions import GatewayError, TransactionDeclined
 from oscar.core.loading import get_model
