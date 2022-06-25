@@ -16,7 +16,7 @@ from rest_framework.views import APIView
 
 from ecommerce_extensions.payment.constants import DECLINED_STATUS, PENDING_STATUS
 from ecommerce_extensions.payment.encryption_utils import decode_string
-from ecommerce_extensions.payment.processors.edupay import EdnxPaymentProcessor, TransactionPending
+
 
 try:
     from ecommerce.extensions.checkout.mixins import EdxOrderPlacementMixin
